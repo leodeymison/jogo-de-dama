@@ -5,14 +5,12 @@ import {
   PlayerTurnType,
 } from "../types/index";
 
-export const movePart = (
+export const DeletePartPlayer = (
   playersPosition: PlayersPositionType,
   playerTurn: PlayerTurnType,
-  itenSelect: ItemSelectType,
-  index: IndexType
+  itenSelect: ItemSelectType
 ) => {
-  // Remove
-  const deleteData = {
+  return {
     ...playersPosition,
     [`player${playerTurn}`]: {
       ...playersPosition["player" + playerTurn],
@@ -21,6 +19,16 @@ export const movePart = (
       ].filter((item: any) => item !== itenSelect[1]),
     },
   };
+};
+
+export const movePart = (
+  playersPosition: PlayersPositionType,
+  playerTurn: PlayerTurnType,
+  itenSelect: ItemSelectType,
+  index: IndexType
+) => {
+  // Remove
+  const deleteData = DeletePartPlayer(playersPosition, playerTurn, itenSelect);
   // add
   const newData = {
     ...deleteData,

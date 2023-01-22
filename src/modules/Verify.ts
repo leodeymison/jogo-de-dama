@@ -5,6 +5,7 @@ import {
   PlayersPositionType,
   PlayerTurnType,
 } from "../types";
+import { DeletePartPlayer } from "./MovePart";
 
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 export const VerifyIfExistPart = (
@@ -48,5 +49,19 @@ export const VerifyBigHorizontalAndVerticalJump = (
   }
   if (itenSelect[1] === index[1]) {
     return true;
+  }
+};
+
+export const VerifyMoveBack = (
+  playerTurn: PlayerTurnType,
+  itenSelect: ItemSelectType,
+  index: IndexType
+) => {
+  if (playerTurn === 1) {
+    const back = itenSelect[0] - index[0];
+    return back === 1 ? true : false;
+  } else {
+    const back = itenSelect[0] - index[0];
+    return back === -1 ? true : false;
   }
 };
