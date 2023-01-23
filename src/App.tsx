@@ -19,6 +19,20 @@ import { RemoveSelectSquare } from "./modules/RemoveSelectSquare";
 
 const App = () => {
   const [playerTurn, setPlayerTurn] = useState<1 | 2>(2);
+  const dama = {
+    player2: [
+      [0, 1],
+      [0, 3],
+      [0, 5],
+      [0, 7],
+    ],
+    player: [
+      [7, 0],
+      [7, 2],
+      [7, 4],
+      [7, 6],
+    ],
+  };
 
   const [itenSelect, setItemSelect] = useState<Array<number>>([]);
   const [list, setList] = useState<Array<Array<1 | 2>>>([]);
